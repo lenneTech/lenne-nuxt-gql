@@ -4,5 +4,9 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { useQuery, useZeus } from '#imports';
+
+const zeus = useZeus()
+const query = await useQuery()
 </script>
