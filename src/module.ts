@@ -20,7 +20,7 @@ export default defineNuxtModule<ModuleOptions>({
   },
   // Default configuration options of the Nuxt module
   defaults: {
-    path: null
+    path: ''
   },
   async setup(options, nuxt) {
     const { resolve } = createResolver(import.meta.url)
