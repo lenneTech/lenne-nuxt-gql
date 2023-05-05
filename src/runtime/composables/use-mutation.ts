@@ -1,6 +1,7 @@
-import { ModelTypes } from '#zeus'
+import { ModelTypes } from '#zeus';
 import { KeysArray } from '../../types';
-import { useZeus } from './use-zeus'
+import { transformToZeusSyntax } from '../../utils';
+import { useZeus } from './use-zeus';
 
 
 
@@ -9,5 +10,7 @@ export function useMutation<O extends keyof ModelTypes["Mutation"], T extends Mo
     console.log('ops', ops);
     console.log('variables', variables);
     console.log('object', object);
+    const zeusObject = transformToZeusSyntax<KeysArray<T>>(object)
+    console.log('zeusObject', zeusObject);
     return zeus('mutation')
 }
