@@ -1,14 +1,13 @@
 
-import { ModelTypes } from '#zeus'
-import { KeysArray } from '../../types';
+import { GraphQLTypes, InputType, OperationOptions, ValueTypes } from '#zeus'
 import { useZeus } from './use-zeus'
 
 
 
-export function useQuery<O extends keyof ModelTypes["Query"], T extends ModelTypes["Query"][O]>(ops: O, variables: any, object: KeysArray<T>) {
+export function useQuery<O extends "Query", TData extends ValueTypes[O], TResult = InputType<GraphQLTypes[O], TData>>(
+    query: TData | ValueTypes[O],
+    zeusOptions?: OperationOptions,
+) {
     const zeus = useZeus()
-    console.log('ops', ops);
-    console.log('variables', variables);
-    console.log('object', object);
-    return zeus('query')
+    return zeus("query")(query, zeusOptions) as Promise<TResult>
 }
