@@ -1,16 +1,17 @@
-import { ModelTypes } from '#zeus';
-import { KeysArray } from '../../types';
-import { transformToZeusSyntax } from '../../utils';
-import { useZeus } from './use-zeus';
+import { GraphQLTypes, InputType, OperationOptions, ValueTypes } from "#zeus";
+import { useZeus } from "./use-zeus";
 
-
-
-export function useMutation<O extends keyof ModelTypes["Mutation"], T extends ModelTypes["Mutation"][O]>(ops: O, variables: any, object: KeysArray<T>) {
+export function useMutation<O extends "Mutation", TData extends ValueTypes[O], TResult = InputType<GraphQLTypes[O], TData>>(
+    mutation: TData | ValueTypes[O],
+    zeusOptions?: OperationOptions,
+) {
     const zeus = useZeus()
-    console.log('ops', ops);
-    console.log('variables', variables);
-    console.log('object', object);
-    const zeusObject = transformToZeusSyntax<KeysArray<T>>(object)
-    console.log('zeusObject', zeusObject);
-    return zeus('mutation')
+    return zeus("mutation")(mutation, zeusOptions) as Promise<TResult>
 }
+
+
+/* export const drawCardQuery = Selector("Mutation")({
+    signIn: [{ input: { email: 'e@mail.de', password: '1234' } }, { token: true, refreshToken: true, user: { createdBy: true, roles: true } }]
+});
+
+type InferredResponseType = InputType<GraphQLTypes['Mutation'], typeof drawCardQuery>['signIn']; */
