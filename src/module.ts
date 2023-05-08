@@ -16,6 +16,12 @@ export interface ModuleOptions {
   * pathToSchema, if not provided, host url will used to fetch schema
   */
   pathToSchema?: string
+
+  /**
+  * Prefix for the token in Cookies default gql:access_token & gql:refresh_token
+  @default 'gql:''
+  */
+  tokenPrefix: string
 }
 
 export default defineNuxtModule<ModuleOptions>({
@@ -25,7 +31,8 @@ export default defineNuxtModule<ModuleOptions>({
   },
   // Default configuration options of the Nuxt module
   defaults: {
-    host: ''
+    host: '',
+    tokenPrefix: 'gql:'
   },
   async setup(options, nuxt) {
     const { resolve } = createResolver(import.meta.url)
@@ -36,6 +43,7 @@ export default defineNuxtModule<ModuleOptions>({
 
     nuxt.options.runtimeConfig.public.zeus = defu(nuxt.options.runtimeConfig.public.zeus, {
       host: options.host,
+      tokenPrefix: options.tokenPrefix
     })
 
     nuxt.options.runtimeConfig.zeus = defu(nuxt.options.runtimeConfig.zeus, {
@@ -76,6 +84,7 @@ export default defineNuxtModule<ModuleOptions>({
 
 interface ModulePublicRuntimeConfig {
   host: ModuleOptions['host']
+  tokenPrefix: ModuleOptions['tokenPrefix']
 }
 
 interface ModulePrivateRuntimeConfig {
