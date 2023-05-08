@@ -1,5 +1,4 @@
 import { defineNuxtModule, createResolver, addImportsDir, addTemplate, useLogger } from '@nuxt/kit'
-import { Utils } from 'graphql-zeus/Utils';
 import { TreeToTS } from 'graphql-zeus-core';
 import { Parser } from 'graphql-js-tree';
 import { readFileSync } from 'node:fs'
@@ -35,6 +34,8 @@ export default defineNuxtModule<ModuleOptions>({
     tokenPrefix: 'gql:'
   },
   async setup(options, nuxt) {
+    const { Utils } = await import('graphql-zeus/Utils')
+
     const { resolve } = createResolver(import.meta.url)
 
     if (!options.host) {
@@ -49,7 +50,7 @@ export default defineNuxtModule<ModuleOptions>({
     nuxt.options.runtimeConfig.zeus = defu(nuxt.options.runtimeConfig.zeus, {
       pathToSchema: options.pathToSchema
     })
-    
+
 
     let schemaFileContents = ''
 
