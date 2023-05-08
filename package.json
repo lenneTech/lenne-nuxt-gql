@@ -29,7 +29,8 @@
   },
   "dependencies": {
     "@nuxt/kit": "^3.4.3",
-    "graphql-zeus": "^5.3.0"
+    "graphql-zeus": "^5.3.0",
+    "defu": "^6.1.2"
   },
   "devDependencies": {
     "@types/node": "^18",
