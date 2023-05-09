@@ -3,7 +3,8 @@ import { TreeToTS } from 'graphql-zeus-core';
 import { Parser } from 'graphql-js-tree';
 import { readFileSync } from 'node:fs'
 import { defu } from 'defu'
-
+// TODO: replace when es-module error is fixed
+import { Utils } from './zeus_utils'
 const logger = useLogger("[@lenne.tech/zeus] ");
 
 export interface ModuleOptions {
@@ -34,8 +35,6 @@ export default defineNuxtModule<ModuleOptions>({
     tokenPrefix: 'gql:'
   },
   async setup(options, nuxt) {
-    const { Utils } = await import('graphql-zeus/Utils')
-
     const { resolve } = createResolver(import.meta.url)
 
     if (!options.host) {
