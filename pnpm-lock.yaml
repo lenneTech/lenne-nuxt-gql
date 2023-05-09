@@ -10,9 +10,15 @@ importers:
       defu:
         specifier: ^6.1.2
         version: 6.1.2
+      graphql:
+        specifier: ^16.6.0
+        version: 16.6.0
       graphql-zeus:
         specifier: ^5.3.0
         version: 5.3.0
+      ofetch:
+        specifier: ^1.0.1
+        version: 1.0.1
     devDependencies:
       '@nuxt/eslint-config':
         specifier: ^0.1.1
@@ -3999,7 +4005,6 @@ packages:
       destr: 1.2.2
       node-fetch-native: 1.1.0
       ufo: 1.1.2
-    dev: true
 
   /ohash@1.1.2:
     resolution: {integrity: sha512-9CIOSq5945rI045GFtcO3uudyOkYVY1nyfFxVQp+9BRgslr8jPNiSSrsFGg/BNTUFOLqx0P5tng6G32brIPw0w==}
