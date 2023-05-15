@@ -1,11 +1,11 @@
-import { defineNuxtModule, createResolver, addImportsDir, addTemplate, useLogger } from '@nuxt/kit'
-import { TreeToTS } from 'graphql-zeus-core';
+import { addImportsDir, addTemplate, createResolver, defineNuxtModule, useLogger } from '@nuxt/kit';
+import { defu } from 'defu';
 import { Parser } from 'graphql-js-tree';
-import { readFileSync } from 'node:fs'
-import { defu } from 'defu'
+import { TreeToTS } from 'graphql-zeus-core';
+import { readFileSync } from 'node:fs';
 // TODO: replace when es-module error is fixed
-import { Utils } from './zeus_utils'
-const logger = useLogger("[@lenne.tech/zeus] ");
+import { Utils } from './zeus_utils';
+const logger = useLogger("[nuxt-zeus] ");
 
 export interface ModuleOptions {
   /**
@@ -26,7 +26,7 @@ export interface ModuleOptions {
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
-    name: '@lenne.tech/lenne-nuxt-gql',
+    name: 'nuxt-zeus',
     configKey: 'zeus'
   },
   // Default configuration options of the Nuxt module
@@ -38,7 +38,7 @@ export default defineNuxtModule<ModuleOptions>({
     const { resolve } = createResolver(import.meta.url)
 
     if (!options.host) {
-      throw new Error('[@lenne.tech/zeus]: Host must be provided, in module config!')
+      throw new Error('[nuxt-zeus]: Host must be provided, in module config!')
     }
 
     nuxt.options.runtimeConfig.public.zeus = defu(nuxt.options.runtimeConfig.public.zeus, {
@@ -55,14 +55,14 @@ export default defineNuxtModule<ModuleOptions>({
 
     if (options.pathToSchema) {
       if (options.pathToSchema && options.pathToSchema.startsWith('http')) {
-        logger.success("[@lenne.tech/zeus] custom remote schema path will be used");
+        logger.success("[nuxt-zeus] custom remote schema path will be used");
         schemaFileContents = await Utils.getFromUrl(options.pathToSchema)
       } else {
-        logger.success("[@lenne.tech/zeus] local schema will be used");
+        logger.success("[nuxt-zeus] local schema will be used");
         schemaFileContents = readFileSync(resolve(options.pathToSchema), 'utf8')
       }
     } else {
-      logger.success("[@lenne.tech/zeus] host will be used as schema path");
+      logger.success("[nuxt-zeus] host will be used as schema path");
       schemaFileContents = await Utils.getFromUrl(options.host)
     }
 
@@ -74,7 +74,7 @@ export default defineNuxtModule<ModuleOptions>({
       ),
     });
 
-    logger.success("[@lenne.tech/zeus] Generated zeus/index.ts");
+    logger.success("[nuxt-zeus] Generated zeus/index.ts");
     nuxt.options.alias['#zeus'] = resolve(nuxt.options.buildDir, 'zeus')
     nuxt.options.alias['#zeus/*'] = resolve(nuxt.options.buildDir, 'zeus', '*')
 

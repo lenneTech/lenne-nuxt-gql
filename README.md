@@ -2,57 +2,57 @@
 Get your module up and running quickly.
 
 Find and replace all on all files (CMD+SHIFT+F):
-- Name: My Module
-- Package name: @lenne.tech/lenne-nuxt-gql
+- Name: nuxt-zeus
+- Package name: nuxt-zeus
 - Description: My new Nuxt module
 -->
 
-# @lenne.tech/lenne-nuxt-gql
+# nuxt-zeus
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![License][license-src]][license-href]
 [![Nuxt][nuxt-src]][nuxt-href]
 
-My new Nuxt module for doing amazing things.
-
 - [✨ &nbsp;Release Notes](/CHANGELOG.md)
-<!-- - [🏀 Online playground](https://stackblitz.com/github/your-org/@lenne.tech/lenne-nuxt-gql?file=playground%2Fapp.vue) -->
+<!-- - [🏀 Online playground](https://stackblitz.com/github/your-org/nuxt-zeus?file=playground%2Fapp.vue) -->
 <!-- - [📖 &nbsp;Documentation](https://example.com) -->
+
+Nuxt 3 module for https://github.com/graphql-editor/graphql-zeus 🚀
 
 ## Features
 
 <!-- Highlight some of the features your module provide here -->
-- ⛰ &nbsp;Foo
-- 🚠 &nbsp;Bar
-- 🌲 &nbsp;Baz
+- 🚀 &nbsp;Use zeus in nuxt app
+- 🚀 &nbsp;Some helper functions for better usage
+- 🚀 &nbsp;Completely typed
 
 ## Quick Setup
 
-1. Add `@lenne.tech/lenne-nuxt-gql` dependency to your project
+1. Add `nuxt-zeus` dependency to your project
 
 ```bash
 # Using pnpm
-pnpm add -D @lenne.tech/lenne-nuxt-gql
+pnpm add -D nuxt-zeus
 
 # Using yarn
-yarn add --dev @lenne.tech/lenne-nuxt-gql
+yarn add --dev nuxt-zeus
 
 # Using npm
-npm install --save-dev @lenne.tech/lenne-nuxt-gql
+npm install --save-dev nuxt-zeus
 ```
 
-2. Add `@lenne.tech/lenne-nuxt-gql` to the `modules` section of `nuxt.config.ts`
+2. Add `nuxt-zeus` to the `modules` section of `nuxt.config.ts`
 
 ```js
 export default defineNuxtConfig({
   modules: [
-    '@lenne.tech/lenne-nuxt-gql'
+    'nuxt-zeus'
   ]
 })
 ```
 
-That's it! You can now use My Module in your Nuxt app ✨
+That's it! You can now use nuxt-zeus in your Nuxt app ✨
 
 ## Development
 
@@ -81,14 +81,14 @@ npm run release
 ```
 
 <!-- Badges -->
-[npm-version-src]: https://img.shields.io/npm/v/@lenne.tech/lenne-nuxt-gql/latest.svg?style=flat&colorA=18181B&colorB=28CF8D
-[npm-version-href]: https://npmjs.com/package/@lenne.tech/lenne-nuxt-gql
+[npm-version-src]: https://img.shields.io/npm/v/nuxt-zeus/latest.svg?style=flat&colorA=18181B&colorB=28CF8D
+[npm-version-href]: https://npmjs.com/package/nuxt-zeus
 
-[npm-downloads-src]: https://img.shields.io/npm/dm/@lenne.tech/lenne-nuxt-gql.svg?style=flat&colorA=18181B&colorB=28CF8D
-[npm-downloads-href]: https://npmjs.com/package/@lenne.tech/lenne-nuxt-gql
+[npm-downloads-src]: https://img.shields.io/npm/dm/nuxt-zeus.svg?style=flat&colorA=18181B&colorB=28CF8D
+[npm-downloads-href]: https://npmjs.com/package/nuxt-zeus
 
-[license-src]: https://img.shields.io/npm/l/@lenne.tech/lenne-nuxt-gql.svg?style=flat&colorA=18181B&colorB=28CF8D
-[license-href]: https://npmjs.com/package/@lenne.tech/lenne-nuxt-gql
+[license-src]: https://img.shields.io/npm/l/nuxt-zeus.svg?style=flat&colorA=18181B&colorB=28CF8D
+[license-href]: https://npmjs.com/package/nuxt-zeus
 
 [nuxt-src]: https://img.shields.io/badge/Nuxt-18181B?logo=nuxt.js
 [nuxt-href]: https://nuxt.com

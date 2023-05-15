@@ -1,6 +1,6 @@
 {
-  "name": "@lenne.tech/lenne-nuxt-gql",
-  "version": "1.0.3",
+  "name": "nuxt-zeus",
+  "version": "1.0.4",
   "description": "Nuxt graphql module of @lenne.tech",
   "repository": "https://github.com/lenneTech/lenne-nuxt-gql",
   "license": "MIT",
