@@ -1,5 +1,5 @@
 import { buildClientSchema, getIntrospectionQuery, GraphQLSchema, printSchema } from 'graphql';
-import { ofetch } from 'ofetch'
+import { ofetch } from 'ofetch';
 /**
  * Class representing all graphql utils needed in Zeus
  */
@@ -34,6 +34,7 @@ export class Utils {
 
         return Utils.printFullSchema(c);
     };
+    
     static printFullSchema = (schema: GraphQLSchema): string => {
         const queryType = schema.getQueryType();
         const mutationType = schema.getMutationType();
